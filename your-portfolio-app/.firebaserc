@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "your-portfolio-app"
+  },
+  "targets": {},
+  "etags": {
+    "your-portfolio-app": {
+      "extensionInstances": {}
+    }
+  }
+}
