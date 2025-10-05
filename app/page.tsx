@@ -13,7 +13,8 @@ export default function Home() {
           priority
         />
         <p className="text-center sm:text-left">
-          I am a skilled software engineer ready to assist you with your coding tasks.
+          I am a skilled software engineer ready to assist you with your coding
+          tasks.
         </p>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
