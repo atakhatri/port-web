@@ -10,6 +10,9 @@ export default function Home() {
             Sign In
           </a>
         </nav>
+        <button className="md:hidden">
+          <Menu />
+        </button>
       </header>
 
       <main className="flex-grow">
@@ -29,7 +32,7 @@ export default function Home() {
           </a>
         </section>
 
-        <section className="py-20">
+        <section className="py-20" style={{ backgroundColor: 'var(--bg-secondary)' }}>
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h3 className="text-4xl font-bold text-gray-800">
@@ -72,11 +75,21 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-white">
-        <div className="container mx-auto px-6 py-4 text-center text-gray-600">
-          &copy; {new Date().getFullYear()} PortfolioMaker. All rights reserved.
+      <footer style={{ backgroundColor: '#343a40', color: '#f5ebe0' }}>
+        <div className="container mx-auto px-6 py-8 text-center">
+          <h3 className="text-2xl font-bold mb-4">OTHER LINKS</h3>
+          <div className="flex justify-center space-x-6 mb-6">
+            <a href="#" aria-label="Instagram"><Instagram /></a>
+            <a href="#" aria-label="Github"><Github /></a>
+            <a href="#" aria-label="LinkedIn"><Linkedin /></a>
+            <a href="#" aria-label="Facebook"><Facebook /></a>
+          </div>
+          <p>&copy; {new Date().getFullYear()} Ata Khatri. All rights reserved.</p>
         </div>
       </footer>
+      <a href="#" className="fixed bottom-8 right-8 p-3 rounded-full" style={{backgroundColor: 'var(--accent-primary)'}}>
+        <ChevronsUp className="text-white" />
+      </a>
     </div>
   );
 }
