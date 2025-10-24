@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import Aurora from "@/components/animated/lightrays";
 import ClickSpark from "@/components/ui/ClickSpark";
-import { NextAuthProvider } from "@/components/auth/NextAuthProvider";
+import ConditionalFooter from "@/components/layout/ConditionalFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,25 +31,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <NextAuthProvider>
-          <Navbar />
-          <ClickSpark
-            sparkColor="#fff"
-            sparkSize={10}
-            sparkRadius={15}
-            sparkCount={8}
-            duration={400}
-          >
-            <Aurora
-              colorStops={["#f5ebe0", "#ffb703", "#343a40"]}
-              blend={1}
-              amplitude={1.5}
-              speed={1}
-            />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </ClickSpark>
-        </NextAuthProvider>
+        <Navbar />
+        <ClickSpark
+          sparkColor="#fff"
+          sparkSize={10}
+          sparkRadius={15}
+          sparkCount={8}
+          duration={400}
+        >
+          <Aurora
+            colorStops={["#f5ebe0", "#ffb703", "#343a40"]}
+            blend={1}
+            amplitude={1.5}
+            speed={1}
+          />
+          <main className="flex-grow overflow-hidden">{children}</main>
+          <ConditionalFooter />
+        </ClickSpark>
       </body>
     </html>
   );
