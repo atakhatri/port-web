@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LoaderPinwheel, LayoutGrid, Flower2 } from "lucide-react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,32 +13,31 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full overflow-hidden">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex-1">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-bold text-3xl text-foreground">PORTIFY</span>
+        <div className="hidden md:flex flex-1 gap-2">
+          <Link href="/" className="flex items-center gap-2 pr-8">
+            <LoaderPinwheel className="h-12 w-12 text-primary transition-all duration-300 ease-in-out hover:rotate-180 hover:text-amber-500" />
           </Link>
-        </div>
-
-        <div className="hidden md:flex flex-1 justify-center">
-          <nav className="flex items-center gap-4 text-base font-medium bg-black/20 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-white/10">
+          <nav className="flex items-center gap-1 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-base font-medium shadow-lg backdrop-blur-md">
             <Link
               href="/"
               className={`${
                 pathname === "/"
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-amber-500 text-black"
                   : "text-gray-300 hover:bg-white/10 hover:text-white"
-              } rounded-full px-4 py-1.5 transition-all duration-300 ease-in-out`}
+              } flex items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 ease-in-out`}
             >
+              <LayoutGrid className="h-5 w-5" />
               Home
             </Link>
             <Link
               href="/about"
               className={`${
                 pathname === "/about"
-                  ? "bg-primary text-primary-foreground"
+                  ? "bg-amber-500 text-black"
                   : "text-gray-300 hover:bg-white/10 hover:text-white"
-              } rounded-full px-4 py-1.5 transition-all duration-300 ease-in-out`}
+              } flex items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 ease-in-out`}
             >
+              <Flower2 className="h-5 w-5" />
               About
             </Link>
           </nav>
@@ -46,7 +45,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex flex-1 justify-end">
           <Link href="/signup" className="btn-primary">
-            Get Started
+            Get in touch
           </Link>
         </div>
 

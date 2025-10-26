@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import FadeContent from "../components/animated/fadecontent";
 import Preloader from "@/components/layout/Preloader";
-import VerticalImageSlider from "@/components/content/VerticalImageSlider";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -20,42 +19,24 @@ export default function Home() {
   }
 
   return (
-    <div className="flex items-center justify-between">
-      <div
-        className={`transition-opacity duration-500 ease-in-out w-full max-w-6xl mx-auto px-4 ${
-          showContent ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center justify-between">
-          {/* Hero Section */}
-          <section className="text-left">
-            <FadeContent
-              blur={true}
-              duration={1000}
-              easing="ease-out"
-              initialOpacity={0}
-            >
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl md:text-7xl">
-                Create Your Stunning Portfolio in Minutes
-              </h1>
-
-              <p className="mt-6 text-2xl text-gray-400">
-                Showcase your work with our intuitive and customizable portfolio
-                builder. No coding required.
+    <div className="container mx-auto">
+      {showContent && (
+        <FadeContent>
+          <div className="flex min-h-[calc(100vh-5rem)]">
+            {/* Left Section */}
+            <aside className="w-1/4 border-r border-white/10 p-8">
+              <div className="w-ful h-50 bg-amber-100 text-black rounded-xl"></div>
+            </aside>
+            {/* Right Section */}
+            <main className="flex-1 p-8">
+              <h1 className="text-2xl font-bold">Right Section</h1>
+              <p className="mt-4 text-gray-400">
+                This is the right section taking up the remaining width.
               </p>
-              <div className="mt-8 flex justify-baseline">
-                <a href="/signup" className="btn-primary">
-                  Get Started for Free
-                </a>
-              </div>
-            </FadeContent>
-          </section>
-          {/* Vertical Image Slider Section */}
-          <section className="w-full h-[60vh] max-w-xs mx-auto md:max-w-none md:h-[25vw] md:max-h-[450px]">
-            <VerticalImageSlider />
-          </section>
-        </div>
-      </div>
+            </main>
+          </div>
+        </FadeContent>
+      )}
     </div>
   );
 }
