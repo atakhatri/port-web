@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Aurora from "@/components/animated/lightrays";
 import ClickSpark from "@/components/ui/ClickSpark";
-import ConditionalFooter from "@/components/layout/ConditionalFooter";
+import Footer from "@/components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,7 +46,7 @@ export default function RootLayout({
             speed={1}
           />
           <main className="flex-grow overflow-hidden">{children}</main>
-          <ConditionalFooter />
+          <Footer />
         </ClickSpark>
       </body>
     </html>

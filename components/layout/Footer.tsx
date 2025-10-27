@@ -1,34 +1,22 @@
 import Link from "next/link";
-import { Briefcase } from "lucide-react";
+import { LoaderPinwheel } from "lucide-react";
+import FadeContent from "../animated/fadecontent";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-700 bg-nav-bg">
-      <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between md:flex-row">
-          <div className="flex items-center gap-2">
-            <Briefcase className="h-6 w-6 text-primary" />
-            <span className="font-bold text-lg text-foreground">Portify</span>
-          </div>
-          <p className="mt-4 text-sm text-gray-400 md:mt-0">
-            &copy; {new Date().getFullYear()} Portify. All rights reserved.
-          </p>
-          <div className="mt-4 flex gap-6 md:mt-0">
-            <Link
-              href="/terms"
-              className="text-sm text-gray-400 hover:text-foreground transition-colors"
-            >
-              Terms
+    <FadeContent>
+      <footer className="border-t border-gray-700 bg-nav-bg">
+        <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 mb-8">
+              <LoaderPinwheel className="h-36 w-36 text-primary transition-all duration-300 ease-in-out hover:rotate-180 hover:text-amber-500" />
             </Link>
-            <Link
-              href="/privacy"
-              className="text-sm text-gray-400 hover:text-foreground transition-colors"
-            >
-              Privacy
-            </Link>
+            <p className="mt-4 text-3xl text-amber-400 ">
+              Thanks for stopping by! ✌️
+            </p>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </FadeContent>
   );
 }
