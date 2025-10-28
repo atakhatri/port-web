@@ -40,7 +40,7 @@ const projects = [
     title: "MRK TechSolutions",
     description:
       "Website for a passionate team of innovators, problem-solvers, and technology enthusiasts dedicated to empowering businesses through digital transformation. Built with the latest technologies to solve a real-world problem.",
-    image: "/projects/p1.png", // Replace with your project image
+    image: "/projects/p1/p1.png", // Replace with your project image
     tags: ["Next.js", "React", "Tailwind CSS"],
     liveUrl: "https://mubin-s-project.vercel.app/",
     githubUrl: "https://github.com/atakhatri/mubin-s-project.git",

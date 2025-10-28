@@ -6,6 +6,7 @@ import Navbar from "../components/layout/Navbar";
 import Aurora from "@/components/animated/lightrays";
 import ClickSpark from "@/components/ui/ClickSpark";
 import Footer from "@/components/layout/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,7 +48,10 @@ export default function RootLayout({
             amplitude={1.5}
             speed={1}
           />
-          <main className="flex-grow overflow-hidden">{children}</main>
+          <main className="flex-grow overflow-hidden">
+            {children}
+            <Analytics />
+          </main>
           <Footer />
         </ClickSpark>
       </body>
