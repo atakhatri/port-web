@@ -58,7 +58,7 @@ const modalVariants = {
     opacity: 0,
     transition: { duration: 0.3 },
   },
-};
+} as const;
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
