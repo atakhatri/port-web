@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { X, Mail, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -32,6 +32,12 @@ const contactOptions = [
     icon: <Twitter />,
     href: "https://x.com/KhatriAta",
     handle: "@KhatriAta",
+  },
+  {
+    name: "Instagram",
+    icon: <Instagram />,
+    href: "https://www.instagram.com/ata_here",
+    handle: "@Ata",
   },
 ];
 
@@ -92,21 +98,38 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               Get in touch
             </h2>
             <div className="space-y-4">
-              {contactOptions.map((option) => (
+              {contactOptions.slice(0, -2).map((option) => (
                 <a
                   key={option.name}
                   href={option.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
                 >
                   <div className="text-amber-400">{option.icon}</div>
                   <div>
                     <p className="font-semibold">{option.name}</p>
-                    <p className="text-sm text-gray-300">{option.handle}</p>
+                    <p className="text-sm text-gray-300 truncate">
+                      {option.handle}
+                    </p>
                   </div>
                 </a>
               ))}
+              <div className="flex gap-4">
+                {contactOptions.slice(-2).map((option) => (
+                  <a
+                    key={option.name}
+                    href={option.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 flex flex-col items-center justify-center gap-2 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors text-center"
+                  >
+                    <div className="text-amber-400">{option.icon}</div>
+                    <p className="font-semibold text-sm">{option.name}</p>
+                    <p className="text-xs text-gray-400">{option.handle}</p>
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>
