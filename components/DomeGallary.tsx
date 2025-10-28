@@ -36,32 +36,32 @@ type ItemDef = {
 
 const DEFAULT_IMAGES: ImageItem[] = [
   {
-    src: "https://images.unsplash.com/photo-1755331039789-7e5680e26e8f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Abstract art",
+    src: "/gallary/i1.jpg",
+    alt: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1755569309049-98410b94f66d?q=80&w=772&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Modern sculpture",
+    src: "/gallary/i2.jpg",
+    alt: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1755497595318-7e5e3523854f?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Digital artwork",
+    src: "/gallary/i3.jpg",
+    alt: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1755353985163-c2a0fe5ac3d8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Contemporary art",
+    src: "/gallary/i4.jpg",
+    alt: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1745965976680-d00be7dc0377?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Geometric pattern",
+    src: "/gallary/i5.jpg",
+    alt: "",
   },
   {
-    src: "https://images.unsplash.com/photo-1752588975228-21f44630bb3c?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    alt: "Textured surface",
+    src: "/gallary/i6.jpg",
+    alt: "",
   },
   {
-    src: "https://pbs.twimg.com/media/Gyla7NnXMAAXSo_?format=jpg&name=large",
-    alt: "Social media image",
+    src: "/gallary/i7.jpg",
+    alt: "",
   },
 ];
 
@@ -153,21 +153,21 @@ function computeItemBaseRotation(
 export default function DomeGallery({
   images = DEFAULT_IMAGES,
   fit = 1,
-  fitBasis = "auto",
+  fitBasis = "max",
   minRadius = 1000,
   maxRadius = Infinity,
-  padFactor = 0.25,
-  overlayBlurColor = "#060010",
+  padFactor = 0.5,
+  overlayBlurColor = "#212529",
   maxVerticalRotationDeg = DEFAULTS.maxVerticalRotationDeg,
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
-  dragDampening = 2,
+  dragDampening = 5,
   openedImageWidth = "400px",
-  openedImageHeight = "400px",
+  openedImageHeight = "600px",
   imageBorderRadius = "30px",
   openedImageBorderRadius = "30px",
-  grayscale = true,
+  grayscale = false,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -781,7 +781,6 @@ export default function DomeGallery({
       position: absolute;
       width: 100%; /* Ensure the sphere takes up full width of its parent */
       height: 100%; /* Ensure the sphere takes up full height of its parent */
-      background-color: rgba(255, 0, 0, 0.1); /* TEMP: Debugging background */
     }
     
     .sphere-item {
@@ -795,7 +794,6 @@ export default function DomeGallery({
       margin: auto;
       transform-origin: 50% 50%;
       backface-visibility: hidden;
-      background-color: rgba(0, 255, 0, 0.5);
       transition: transform 300ms;
       transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg))) 
                  rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg))) 

@@ -56,12 +56,12 @@ const Preloader: React.FC<PreloaderProps> = ({ onAnimationComplete }) => {
     <span
       key={index}
       // Apply transition for opacity, and control opacity based on animation phase
-      className={`transition-opacity duration-150 ease-in-out ${
+      className={` flex flex-col transition-opacity duration-120 ease-in-out ${
         (isVanishing && index > currentWordIndex) ||
         (!isVanishing && index > currentWordIndex)
           ? "opacity-0"
           : "opacity-100"
-      } ${index > 0 ? "ml-2" : ""}`}
+      } ${index > 0 ? "mb-2" : ""} ${index == 0 ? "text-amber-500" : ""}`}
     >
       {word}
     </span>

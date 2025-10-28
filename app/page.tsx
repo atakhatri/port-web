@@ -39,7 +39,7 @@ const projects = [
     title: "MRK TechSolutions",
     description:
       "Website for a passionate team of innovators, problem-solvers, and technology enthusiasts dedicated to empowering businesses through digital transformation. Built with the latest technologies to solve a real-world problem.",
-    image: "/p1.png", // Replace with your project image
+    image: "/projects/p1.png", // Replace with your project image
     tags: ["Next.js", "React", "Tailwind CSS"],
     liveUrl: "https://mubin-s-project.vercel.app/",
     githubUrl: "https://github.com/atakhatri/mubin-s-project.git",
@@ -48,7 +48,7 @@ const projects = [
     title: "UNO Game",
     description:
       "Made for Entertainment purposes, a nice way to pass your boredome. Created with Original UNO game logic, where you can play it with your friends as well. it is made with latest tech and framework of next.js, and firebase.",
-    image: "/p2.png", // Replace with your project image
+    image: "/projects/p2/p2.png", // Replace with your project image
     tags: ["Next.js", "React", "Firebase", "Tailwind CSS"],
     liveUrl: "https://uno-ebon.vercel.app/",
     githubUrl: "https://github.com/atakhatri/UNO.git",

@@ -5,7 +5,7 @@ import FadeContent from "../animated/fadecontent";
 export default function Footer() {
   return (
     <FadeContent>
-      <footer className="border-t border-gray-700 bg-nav-bg">
+      <footer className="border-t border-gray-700 bg-nav-bg overflow-hidden">
         <div className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between">
             <Link href="/" className="flex items-center gap-2 mb-8">

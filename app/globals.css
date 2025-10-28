@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+@tailwind utilities;
 :root {
   --background: #212529;
   --foreground: #f5ebe0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: abolition;
+  letter-spacing: 0.15em;
 }
 
 @theme inline {

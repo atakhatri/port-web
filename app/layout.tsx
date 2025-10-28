@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Aurora from "@/components/animated/lightrays";
@@ -11,9 +12,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const abolition = localFont({
+  src: "./fonts/Abolition-Regular.otf",
+  variable: "--font-abolition",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,9 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${abolition.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
         <ClickSpark
           sparkColor="#fff"
           sparkSize={10}
@@ -39,6 +40,7 @@ export default function RootLayout({
           sparkCount={8}
           duration={400}
         >
+          <Navbar />
           <Aurora
             colorStops={["#f5ebe0", "#ffb703", "#343a40"]}
             blend={1}
