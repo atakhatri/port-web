@@ -52,7 +52,7 @@ const detailedProjects = [
     media: [
       { type: "video", src: "/projects/p1/p1.mp4" },
       { type: "image", src: "/projects/p1/p12.png" },
-    ],
+    ] as const,
   },
   {
     title: "UNO Game",
@@ -65,7 +65,7 @@ const detailedProjects = [
     media: [
       { type: "video", src: "/projects/p2/p2.mp4" },
       { type: "image", src: "/projects/p2/p22.png" },
-    ],
+    ] as const,
   },
 ];
 
