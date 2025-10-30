@@ -162,7 +162,7 @@ export default function DomeGallery({
   dragSensitivity = DEFAULTS.dragSensitivity,
   enlargeTransitionMs = DEFAULTS.enlargeTransitionMs,
   segments = DEFAULTS.segments,
-  dragDampening = 5,
+  dragDampening = 20,
   openedImageWidth = "400px",
   openedImageHeight = "600px",
   imageBorderRadius = "30px",

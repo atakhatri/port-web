@@ -69,7 +69,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onAnimationComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 bg-black flex items-center justify-center z-50 transition-opacity ease-out ${
+      className={`fixed inset-0 bg-black flex items-center justify-center z-100 transition-opacity ease-out ${
         preloaderFadingOut ? "opacity-0 duration-500" : "opacity-100"
       }`}
     >

@@ -85,7 +85,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
 
       {/* Mobile View */}
       <motion.div
-        className="hidden grid grid-cols-2 sm:grid-cols-3 gap-4 md:hidden"
+        className="hidden grid-cols-2 sm:grid-cols-3 gap-4 md:hidden"
         variants={gridContainerVariants}
         initial="hidden"
         animate="visible"
