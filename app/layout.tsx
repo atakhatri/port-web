@@ -20,7 +20,7 @@ const abolition = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ata Khatri | Frontend Developer",
+  title: "Ata Khatri | Web/App Developer",
   description: "Ata Khatri's personal portfolio website.",
 };
 
