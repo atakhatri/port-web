@@ -49,7 +49,7 @@ export default function ClimateInstallPage() {
         </motion.p>
         <motion.div variants={itemVariants}>
           <Link
-            href="https://expo.dev/artifacts/eas/tadU93yqfHSQENoW1u8jy4.apk"
+            href="https://expo.dev/artifacts/eas/2GWCU11yaAb2AZKpBcQoY3.apk"
             download
             className="inline-flex items-center gap-3 px-8 py-4 bg-amber-500 text-black font-bold rounded-full text-lg hover:bg-amber-400 transition-all duration-300 ease-in-out shadow-lg hover:shadow-amber-500/30 transform hover:-translate-y-1"
           >
