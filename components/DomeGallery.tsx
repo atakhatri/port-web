@@ -36,31 +36,31 @@ type ItemDef = {
 
 const DEFAULT_IMAGES: ImageItem[] = [
   {
-    src: "/gallary/i1.jpg",
+    src: "/gallery/i1.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i2.jpg",
+    src: "/gallery/i2.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i3.jpg",
+    src: "/gallery/i3.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i4.jpg",
+    src: "/gallery/i4.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i5.jpg",
+    src: "/gallery/i5.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i6.jpg",
+    src: "/gallery/i6.jpg",
     alt: "",
   },
   {
-    src: "/gallary/i7.jpg",
+    src: "/gallery/i7.jpg",
     alt: "",
   },
 ];

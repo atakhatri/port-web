@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import ImageGallery from "@/components/ImageGallery";
-import DomeGallery from "@/components/DomeGallary";
+import DomeGallery from "@/components/DomeGallery";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ExternalLink, ChevronDown } from "lucide-react";
@@ -13,18 +13,18 @@ import FadeContent from "@/components/animated/fadecontent";
 
 const galleryImages = [
   {
-    imageSrc: "/gallary/grid/code.jpeg",
+    imageSrc: "/gallery/grid/code.jpeg",
     altText: "Image of Code",
     captionText: "Code",
   },
   {
-    imageSrc: "/gallary/grid/kohli1.jpeg",
+    imageSrc: "/gallery/grid/kohli1.jpeg",
     altText: "Virat Kohli",
     captionText: "Vk-18",
   },
   {
-    imageSrc: "/gallary/grid/luffy.jpeg",
-    altText: "Welcome to Ata's Gallary",
+    imageSrc: "/gallery/grid/luffy.jpeg",
+    altText: "Welcome to Ata's Gallery",
     captionText: "Ata Khatri",
     overlayContent: (
       <p className="tilted-card-demo-text text-black bg-amber-500  rounded-full p-2 hover:bg-amber-300 trasnsition-all duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]">
@@ -33,12 +33,12 @@ const galleryImages = [
     ),
   },
   {
-    imageSrc: "/gallary/grid/kohli2.jpeg",
+    imageSrc: "/gallery/grid/kohli2.jpeg",
     altText: "Virat Kohli",
     captionText: "Vk-18",
   },
   {
-    imageSrc: "/gallary/grid/github.jpeg",
+    imageSrc: "/gallery/grid/github.jpeg",
     altText: "image of Github",
     captionText: "Github",
   },
@@ -218,7 +218,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Gallary Images */}
+      {/* Gallery Images */}
       <div className="container mx-auto px-4 py-0">
         <h1 className="text-4xl font-bold text-center text-amber-400 mb-4 mt-4">
           Dome Gallery
@@ -237,7 +237,7 @@ export default function AboutPage() {
           className=" relative bottom-25  z-100 bg-white rounded-full flex gap-4 justify-baseline align-middle w-50 hover:bg-amber-300 transition-all duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
         >
           <Image
-            src="/gallary/vsco.svg"
+            src="/gallery/vsco.svg"
             alt="Profile Picture"
             width={6}
             height={6}

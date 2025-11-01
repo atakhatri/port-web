@@ -166,10 +166,10 @@ export default function Home() {
                           Contact Me
                         </button>
                         <a
-                          href="/gallary"
+                          href="/gallery"
                           className=" w-1/2 text-center px-4 py-2 rounded-full bg-amber-700 hover:bg-amber-500 hover:text-black transition-colors"
                         >
-                          Gallary
+                          Gallery
                         </a>
                       </div>
                     </div>

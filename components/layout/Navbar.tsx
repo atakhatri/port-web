@@ -58,15 +58,15 @@ export default function Navbar() {
                 Dashboard
               </Link>
               <Link
-                href="/gallary"
+                href="/gallery"
                 className={`${
-                  pathname === "/gallary"
+                  pathname === "/gallery"
                     ? "rounded-full border border-white/10 bg-amber-500 px-4 py-2 text-base font-medium shadow-lg backdrop-blur-md text-black"
                     : "rounded-full border border-white/10 bg-black/20 px-4 py-2 text-base font-medium shadow-lg backdrop-blur-md"
                 } flex items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 ease-in-out hover:bg-amber-300 hover:text-black`}
               >
                 <Flower2 className="h-5 w-5" />
-                Gallary
+                Gallery
               </Link>
             </nav>
           </div>
@@ -132,15 +132,15 @@ export default function Navbar() {
                 </Link>
                 <Link
                   onClick={() => setIsMenuOpen(false)}
-                  href="/gallary"
+                  href="/gallery"
                   className={`${
-                    pathname === "/gallary"
+                    pathname === "/gallery"
                       ? "rounded-full border border-white/10 bg-amber-500 px-4 py-2 text-base font-medium shadow-lg backdrop-blur-md text-black"
                       : "rounded-full border border-white/10 bg-black/20 px-4 py-2 text-base font-medium shadow-lg backdrop-blur-md"
                   } w-full flex items-center gap-2 rounded-full px-3 py-1.5 transition-all duration-300 ease-in-out hover:bg-amber-300 hover:text-black`}
                 >
                   <Flower2 className="h-5 w-5" />
-                  Gallary
+                  Gallery
                 </Link>
                 <button
                   onClick={() => {
