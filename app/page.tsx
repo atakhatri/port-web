@@ -60,7 +60,7 @@ const projects = [
       "A weather app built using React Native and Expo that provides real-time weather information for any location. It features a clean and intuitive UI designed with Tailwind CSS, and fetches data from a reliable weather API to display current conditions, forecasts, and more.",
     image: "/projects/p3/p3.png",
     tags: ["React Native", "Expo", "Tailwind CSS", "Weather API"],
-    liveUrl: "#",
+    liveUrl: "/install/climate",
     githubUrl: "https://github.com/atakhatri/climate.git",
   },
 ];
