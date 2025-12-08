@@ -364,6 +364,7 @@ export default function Home() {
                 </div>
               </main>
             </div>
+            {/* End of Main Flex Container */}
           </FadeContent>
         )}
       </div>
