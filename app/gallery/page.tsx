@@ -84,6 +84,19 @@ const detailedProjects = [
       { type: "image", src: "/projects/p3/p32.png" },
     ] as const,
   },
+  {
+    title: "Virat Kohli Fan Page",
+    description:
+      "A fan page dedicated to Virat Kohli, showcasing his achievements, statistics, and memorable moments in cricket. Built with Next.js and styled with Tailwind CSS, the page features a responsive design and interactive elements to engage fans.",
+    image: "/projects/p4/p4.png",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    liveUrl: "https://vk18-sigma.vercel.app/",
+    githubUrl: "https://github.com/atakhatri/vk18-sigma.git",
+    media: [
+      { type: "video", src: "/projects/p4/p4.mp4" },
+      { type: "image", src: "/projects/p4/p42.png" },
+    ] as const,
+  },
 ];
 
 export default function AboutPage() {
