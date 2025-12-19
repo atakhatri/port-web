@@ -59,7 +59,7 @@ const projects = [
       "A weather app built using React Native and Expo that provides real-time weather information for any location. It features a clean and intuitive UI designed with Tailwind CSS, and fetches data from a reliable weather API to display current conditions, forecasts, and more.",
     image: "/projects/p3/p3.png",
     tags: ["React Native", "Expo", "Tailwind CSS", "Weather API"],
-    liveUrl: "/install/climate",
+    liveUrl: "/",
     githubUrl: "https://github.com/atakhatri/climate.git",
   },
   {
@@ -134,7 +134,7 @@ export default function Home() {
             <aside className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-white/10 p-2 md:p-4">
               <div className="sticky top-4 flex flex-col gap-4 md:gap-8">
                 {/* 1. Profile/Contact Block */}
-                <FadeContent>
+                <FadeContent delay={0}>
                   <div className="bg-white/20 p-2 rounded-xl">
                     <div>
                       <div className="flex items-center gap-3 mb-2">
@@ -173,11 +173,14 @@ export default function Home() {
                 </FadeContent>
 
                 {/* 2. About  */}
-                <FadeContent>
+                <FadeContent delay={0.2}>
                   <div className="bg-white/20 p-2 rounded-xl">
                     <h3 className="text-xl font-semibold mb-2 pl-1">About</h3>
                     <div className="space-y-2">
-                      <div className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
+                      <div
+                        tabIndex={0}
+                        className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
                         <Link
                           href="https://open.spotify.com/playlist/4YEH7T9M0NHuoLuBpViomw?si=873c8f5ae4fc4f30"
                           className="flex items-center gap-2"
@@ -191,14 +194,20 @@ export default function Home() {
                           </span>
                         </Link>
                       </div>
-                      <div className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
+                      <div
+                        tabIndex={0}
+                        className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
                         <Languages className="text-blue-400 w-8 h-8 bg-blue-950 p-0.5 rounded-full" />
                         <span className="text-amber-500">I Speak:</span>
                         <span className="text-white font-medium">
                           English, Hindi, Gujarati
                         </span>
                       </div>
-                      <div className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
+                      <div
+                        tabIndex={0}
+                        className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
                         <Link
                           href="https://github.com/atakhatri"
                           className="flex items-center gap-2"
@@ -210,7 +219,10 @@ export default function Home() {
                           <span className="text-white font-medium">Github</span>
                         </Link>
                       </div>
-                      <div className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
+                      <div
+                        tabIndex={0}
+                        className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
                         <FaStarHalfAlt className="text-yellow-400 w-8 h-8 bg-amber-100 p-0.5 rounded-full" />
                         <span className="text-amber-500">Expertise:</span>
                         <span className="text-white font-medium">Learning</span>
@@ -220,23 +232,25 @@ export default function Home() {
                 </FadeContent>
 
                 {/* 3. Timeline */}
-                <FadeContent>
+                <FadeContent delay={0.4}>
                   <div className="bg-white/20 p-2 rounded-xl">
                     <h3 className="text-lg font-semibold mb-2 pl-1">
                       Timeline
                     </h3>
-                    <div className="bg-white/10 p-2 rounded-xl">
+                    <div
+                      tabIndex={0}
+                      className="bg-white/10 p-2 rounded-xl hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                    >
                       <div className="space-y-4 flex flex-col">
                         {/* Present */}
                         <div className="">
                           <h4 className="font-bold text-white">Present</h4>
                           <p className="text-gray-300 text-sm">
-                            Currently working as a Web / App Developer
-                            [Freelancer], focusing on building responsive web /
-                            Mobile applications using latest technologies.
+                            Currently Learning Web / App Development and working
+                            as a freelancer.
                           </p>
                         </div>
-                        {/* 24-25 */}
+
                         <div>
                           <h4 className="font-bold text-white">2024 - 2025</h4>
                           <p className="text-gray-300 text-sm">
@@ -244,12 +258,21 @@ export default function Home() {
                             Programming languages like Python, C / C++.
                           </p>
                         </div>
+                        {/* 23-24 */}
+                        <div>
+                          <h4 className="font-bold text-white">2023-2024</h4>
+                          <p className="text-gray-300 text-sm">
+                            Completed Higher Secondary Education with
+                            specialization in Commerce stream from GSHSEB.
+                          </p>
+                        </div>
                         {/* Education */}
                         <div>
                           <h4 className="font-bold text-white">Education</h4>
                           <p className="text-gray-300 text-sm">
                             <strong>BCA</strong> - at MSU Baroda - [2024] -
-                            [2028] <br />
+                            [2028]
+                            <br />
                             <strong>Commerce</strong> - GSHSEB - [2022] - [2024]
                           </p>
                         </div>
@@ -259,29 +282,43 @@ export default function Home() {
                 </FadeContent>
 
                 {/* 4. Skills */}
-                <div className="bg-white/20 p-2 rounded-xl">
-                  <h3 className="text-lg font-semibold mb-4 pl-1">Skills</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
-                      <span className="text-gray-200">
-                        Website / App Development
-                      </span>
-                      <LayoutTemplate className="text-gray-600 w-8 h-8 bg-gray-100 p-0.5 rounded" />
-                    </div>
-                    <div className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
-                      <span className="text-gray-200">Web / App Design</span>
-                      <Figma className="text-blue-700 w-8 h-8 bg-blue-100 p-0.5 rounded" />
-                    </div>
-                    <div className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
-                      <span className="text-gray-200">DSA </span>
-                      <TrendingUpDown className="text-green-600 w-8 h-8 bg-green-100 p-0.5 rounded" />
-                    </div>
-                    <div className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg">
-                      <span className="text-gray-200">SQL</span>
-                      <Database className="text-red-600 w-8 h-8 bg-red-100 p-0.5 rounded" />
+                <FadeContent delay={0.6}>
+                  <div className="bg-white/20 p-2 rounded-xl">
+                    <h3 className="text-lg font-semibold mb-4 pl-1">Skills</h3>
+                    <div className="space-y-2">
+                      <div
+                        tabIndex={0}
+                        className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
+                        <span className="text-gray-200">
+                          Website / App Development
+                        </span>
+                        <LayoutTemplate className="text-gray-600 w-8 h-8 bg-gray-100 p-0.5 rounded" />
+                      </div>
+                      <div
+                        tabIndex={0}
+                        className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
+                        <span className="text-gray-200">Web / App Design</span>
+                        <Figma className="text-blue-700 w-8 h-8 bg-blue-100 p-0.5 rounded" />
+                      </div>
+                      <div
+                        tabIndex={0}
+                        className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
+                        <span className="text-gray-200">DSA </span>
+                        <TrendingUpDown className="text-green-600 w-8 h-8 bg-green-100 p-0.5 rounded" />
+                      </div>
+                      <div
+                        tabIndex={0}
+                        className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
+                        <span className="text-gray-200">SQL</span>
+                        <Database className="text-red-600 w-8 h-8 bg-red-100 p-0.5 rounded" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </FadeContent>
               </div>
             </aside>
 
@@ -300,7 +337,8 @@ export default function Home() {
                     <motion.div
                       key={index}
                       variants={cardVariants}
-                      className="bg-white/10 rounded-xl overflow-hidden group transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-1"
+                      tabIndex={0}
+                      className="bg-white/10 rounded-xl overflow-hidden group transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                     >
                       <div className="overflow-hidden">
                         <Image
