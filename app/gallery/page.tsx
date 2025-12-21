@@ -28,7 +28,7 @@ const galleryImages = [
     captionText: "Ata Khatri",
     overlayContent: (
       <p className="tilted-card-demo-text text-black bg-amber-500  rounded-full p-2 hover:bg-amber-300 trasnsition-all duration-300 ease-in-out hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]">
-        Welcome to my gallery
+        Welcome to my gallery, Enjoy !!
       </p>
     ),
   },
