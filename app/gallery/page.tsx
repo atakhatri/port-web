@@ -71,24 +71,7 @@ const detailedProjects = [
       { type: "image", src: "/projects/p2/p22.png" },
     ] as const,
   },
-  {
-    title: "Scribbles",
-    type: "Mobile App",
-    description:
-      "A simple drawing app built with React and TypeScript, allowing users to create and save their digital scribbles. It features a canvas for freehand drawing, color selection, and the ability to export drawings as images.",
-    image: "/projects/scribbles/scribbles.png",
-    tags: ["React", "TypeScript"],
-    liveUrl: "/install/scribbles",
-    githubUrl: "https://github.com/atakhatri/Scribbles.git",
-    media: [
-      { type: "image", src: "/projects/scribbles/outer.jpeg" },
-      { type: "image", src: "/projects/scribbles/game.jpeg" },
-      { type: "image", src: "/projects/scribbles/profile.jpeg" },
-      { type: "image", src: "/projects/scribbles/inner.jpeg" },
-      { type: "image", src: "/projects/scribbles/friends.jpeg" },
-      { type: "image", src: "/projects/scribbles/win.jpeg" },
-    ] as const,
-  },
+
   {
     title: "Climate",
     type: "Mobile App",
@@ -115,6 +98,24 @@ const detailedProjects = [
     media: [
       { type: "video", src: "/projects/p4/p4.mp4" },
       { type: "image", src: "/projects/p4/p42.png" },
+    ] as const,
+  },
+  {
+    title: "Scribbles",
+    type: "Mobile App",
+    description:
+      "A simple drawing app built with React and TypeScript, allowing users to create and save their digital scribbles. It features a canvas for freehand drawing, color selection, and the ability to export drawings as images.",
+    image: "/projects/p5/scribbles.png",
+    tags: ["React", "TypeScript"],
+    liveUrl: "/install/scribbles",
+    githubUrl: "https://github.com/atakhatri/Scribbles.git",
+    media: [
+      { type: "image", src: "/projects/p5/outer.jpeg" },
+      { type: "image", src: "/projects/p5/game.jpeg" },
+      { type: "image", src: "/projects/p5/profile.jpeg" },
+      { type: "image", src: "/projects/p5/inner.jpeg" },
+      { type: "image", src: "/projects/p5/friends.jpeg" },
+      { type: "image", src: "/projects/p5/win.jpeg" },
     ] as const,
   },
 ];
