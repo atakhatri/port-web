@@ -72,7 +72,26 @@ const detailedProjects = [
     ] as const,
   },
   {
+    title: "Scribbles",
+    type: "Mobile App",
+    description:
+      "A simple drawing app built with React and TypeScript, allowing users to create and save their digital scribbles. It features a canvas for freehand drawing, color selection, and the ability to export drawings as images.",
+    image: "/projects/scribbles/scribbles.png",
+    tags: ["React", "TypeScript"],
+    liveUrl: "/install/scribbles",
+    githubUrl: "https://github.com/atakhatri/Scribbles.git",
+    media: [
+      { type: "image", src: "/projects/scribbles/outer.jpeg" },
+      { type: "image", src: "/projects/scribbles/game.jpeg" },
+      { type: "image", src: "/projects/scribbles/profile.jpeg" },
+      { type: "image", src: "/projects/scribbles/inner.jpeg" },
+      { type: "image", src: "/projects/scribbles/friends.jpeg" },
+      { type: "image", src: "/projects/scribbles/win.jpeg" },
+    ] as const,
+  },
+  {
     title: "Climate",
+    type: "Mobile App",
     description:
       "A weather app built using React Native and Expo that provides real-time weather information for any location. It features a clean and intuitive UI designed with Tailwind CSS, and fetches data from a reliable weather API to display current conditions, forecasts, and more.",
     image: "/projects/p3/p3.png",
@@ -80,8 +99,9 @@ const detailedProjects = [
     liveUrl: "/install/climate",
     githubUrl: "https://github.com/atakhatri/climate.git",
     media: [
-      { type: "video", src: "/projects/p3/p3.mp4" },
-      { type: "image", src: "/projects/p3/p32.png" },
+      { type: "image", src: "/projects/p3/outer.jpeg" },
+      { type: "image", src: "/projects/p3/inner.jpeg" },
+      { type: "image", src: "/projects/p3/map.jpeg" },
     ] as const,
   },
   {
@@ -209,7 +229,13 @@ export default function AboutPage() {
 
                     {/* Right Side: Media Gallery */}
                     <div className="md:w-1/2 p-2 md:p-2 md:bg-black/20">
-                      <div className="grid grid-cols-1 gap-2">
+                      <div
+                        className={`grid gap-2 ${
+                          (project as any).type === "Mobile App"
+                            ? "grid-cols-3"
+                            : "grid-cols-1"
+                        }`}
+                      >
                         {project.media.map((item, mediaIndex) => (
                           <div
                             key={mediaIndex}

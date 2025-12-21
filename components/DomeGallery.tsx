@@ -63,6 +63,14 @@ const DEFAULT_IMAGES: ImageItem[] = [
     src: "/gallery/i7.jpg",
     alt: "",
   },
+  {
+    src: "/gallery/i8.jpg",
+    alt: "",
+  },
+  {
+    src: "/gallery/i9.jpg",
+    alt: "",
+  },
 ];
 
 const DEFAULTS = {
