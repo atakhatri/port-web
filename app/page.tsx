@@ -48,7 +48,7 @@ const projects = [
     title: "Scribbles",
     description:
       "A fun game to play with your friends in free time, where you can draw and guess what your friends are drawing. Very smooth and consistent experience with firebase integration.",
-    image: "/projects/scribbles/scribbles.png",
+    image: "/projects/p5/scribbles.png",
     tags: ["React Native", "Expo", "Firebase"],
     liveUrl: "/install/scribbles",
     githubUrl: "https://github.com/atakhatri/Scribbles.git",
