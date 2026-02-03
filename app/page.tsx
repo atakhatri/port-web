@@ -5,28 +5,11 @@ import React, { useState, Fragment } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import FadeContent from "../components/animated/fadecontent";
-import {
-  FaSpotify,
-  FaGitAlt,
-  FaStarHalfAlt,
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaPython,
-  FaGithub,
-} from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiNextdotjs,
-  SiFirebase,
-  SiCplusplus,
-} from "react-icons/si";
+import { FaSpotify, FaGitAlt, FaStarHalfAlt } from "react-icons/fa";
 import {
   Languages,
   LayoutTemplate,
   Figma,
-  Code,
   TrendingUpDown,
   Database,
 } from "lucide-react";
@@ -159,7 +142,7 @@ export default function Home() {
                             Ata Khatri
                           </h2>
                           <p className="text-md md:text-lg text-amber-200 mt-1">
-                            Full Stack Developer
+                            Web / App Developer
                           </p>
                         </div>
                       </div>

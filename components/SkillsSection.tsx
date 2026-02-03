@@ -18,13 +18,10 @@ import {
 } from "react-icons/si";
 import { Languages, LayoutTemplate, Figma, Database } from "lucide-react";
 
-// Ensure GSAP and ScrollTrigger are registered if this component might be rendered independently
-// In this case, it's already registered in app/page.tsx, but it's good practice to ensure.
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Define skill icons with their colors and new sizes (approx. 3x original)
 const skills = [
   { icon: FaReact, color: "text-blue-400", size: "9rem" }, // text-5xl (48px) * 3 = 144px
   { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" }, // text-4xl (36px) * 3 = 108px
@@ -39,7 +36,6 @@ const skills = [
   { icon: Figma, color: "text-purple-500", size: "6.75rem" },
   { icon: FaPython, color: "text-blue-500", size: "9rem" },
   { icon: SiCplusplus, color: "text-blue-700", size: "6.75rem" },
-  // Duplicate for more quantity
   { icon: FaReact, color: "text-blue-400", size: "9rem" },
   { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" },
   { icon: FaCss3Alt, color: "text-blue-600", size: "9rem" },
@@ -53,7 +49,6 @@ const skills = [
   { icon: Figma, color: "text-purple-500", size: "6.75rem" },
   { icon: FaPython, color: "text-blue-500", size: "9rem" },
   { icon: SiCplusplus, color: "text-blue-700", size: "6.75rem" },
-  // Another set for even more quantity
   { icon: FaReact, color: "text-blue-400", size: "9rem" },
   { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" },
   { icon: FaCss3Alt, color: "text-blue-600", size: "9rem" },
@@ -87,18 +82,16 @@ const SkillsSection = () => {
           scale: 1,
           y: 0,
           rotation: () => gsap.utils.random(-15, 15),
-          stagger: 0.05, // Reduced stagger for more icons
+          stagger: 0.05,
           duration: 0.8,
           ease: "back.out(1.7)",
           scrollTrigger: {
             trigger: skillsContainerRef.current,
-            start: "top bottom+=100", // Start animation when the top of the container hits 100px from the bottom of the viewport
-            // toggleActions: "play none none none", // Play animation once when it enters
+            start: "top bottom+=100",
           },
-        }
+        },
       );
 
-      // Add hover interactivity
       const icons = gsap.utils.toArray(".skill-icon");
       icons.forEach((icon: any) => {
         gsap.set(icon, { transformOrigin: "center center" });
@@ -113,7 +106,6 @@ const SkillsSection = () => {
           });
         });
 
-        // Parallax effect on scroll
         icons.forEach((icon: any) => {
           gsap.to(icon, {
             y: gsap.utils.random(-100, 100),
@@ -144,7 +136,7 @@ const SkillsSection = () => {
   return (
     <div
       ref={skillsContainerRef}
-      className=" px-4 rounded-xl relative h-[15rem] overflow-hidden" // Increased height for more space
+      className=" px-4 rounded-xl relative h-[15rem] overflow-hidden"
     >
       <div className="absolute inset-0 p-4">
         {skills.map((skill, i) => {
@@ -161,7 +153,7 @@ const SkillsSection = () => {
                 top: randomTop,
                 left: randomLeft,
                 transform: `rotate(${randomRotate})`,
-                fontSize: skill.size, // Apply the 3x larger font size
+                fontSize: skill.size,
               }}
             />
           );
