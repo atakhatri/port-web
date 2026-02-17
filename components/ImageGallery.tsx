@@ -21,7 +21,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   const openLightbox = (imageSrc: string) => setSelectedImage(imageSrc);
   const closeLightbox = () => setSelectedImage(null);
 
-  // Repeat images for a fuller mobile grid view
   const mobileImages = [...images, ...images, ...images];
 
   const gridContainerVariants = {
@@ -122,7 +121,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               className="relative"
-              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking on the image
+              onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={selectedImage}

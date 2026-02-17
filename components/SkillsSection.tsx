@@ -23,8 +23,21 @@ if (typeof window !== "undefined") {
 }
 
 const skills = [
-  { icon: FaReact, color: "text-blue-400", size: "9rem" }, // text-5xl (48px) * 3 = 144px
-  { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" }, // text-4xl (36px) * 3 = 108px
+  { icon: FaReact, color: "text-blue-400", size: "9rem" },
+  { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" },
+  { icon: FaCss3Alt, color: "text-blue-600", size: "9rem" },
+  { icon: FaJs, color: "text-yellow-400", size: "6.75rem" },
+  { icon: SiTailwindcss, color: "text-cyan-400", size: "9rem" },
+  { icon: FaGitAlt, color: "text-orange-600", size: "6.75rem" },
+  { icon: FaGithub, color: "text-gray-800", size: "9rem" },
+  { icon: SiNextdotjs, color: "text-gray-200", size: "9rem" },
+  { icon: SiFirebase, color: "text-orange-400", size: "6.75rem" },
+  { icon: Database, color: "text-green-500", size: "9rem" },
+  { icon: Figma, color: "text-purple-500", size: "6.75rem" },
+  { icon: FaPython, color: "text-blue-500", size: "9rem" },
+  { icon: SiCplusplus, color: "text-blue-700", size: "6.75rem" },
+  { icon: FaReact, color: "text-blue-400", size: "9rem" },
+  { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" },
   { icon: FaCss3Alt, color: "text-blue-600", size: "9rem" },
   { icon: FaJs, color: "text-yellow-400", size: "6.75rem" },
   { icon: SiTailwindcss, color: "text-cyan-400", size: "9rem" },
@@ -141,9 +154,9 @@ const SkillsSection = () => {
       <div className="absolute inset-0 p-4">
         {skills.map((skill, i) => {
           const IconComponent = skill.icon;
-          const randomTop = `${gsap.utils.random(40, 90)}%`; // Lifted up from the bottom
-          const randomLeft = `${gsap.utils.random(5, 90)}%`; // More horizontal spacing
-          const randomRotate = `${gsap.utils.random(-45, 45)}deg`; // Random rotation
+          const randomTop = `${gsap.utils.random(40, 90)}%`;
+          const randomLeft = `${gsap.utils.random(5, 90)}%`;
+          const randomRotate = `${gsap.utils.random(-45, 45)}deg`;
 
           return (
             <IconComponent

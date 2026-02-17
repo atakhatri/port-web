@@ -36,8 +36,8 @@ const contactOptions = [
   {
     name: "Instagram",
     icon: <Instagram />,
-    href: "https://www.instagram.com/ata_here",
-    handle: "@Ata",
+    href: "https://www.instagram.com/ata_khatri",
+    handle: "@Ata Khatri",
   },
 ];
 

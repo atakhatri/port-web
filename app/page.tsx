@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect } from "react";
-import { ExternalLink, Tags } from "lucide-react";
+import { ExternalLink, FileCheck, Tags } from "lucide-react";
 import React, { useState, Fragment } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
@@ -217,7 +217,9 @@ export default function Home() {
                       >
                         <FaStarHalfAlt className="text-yellow-400 w-8 h-8 bg-amber-100 p-0.5 rounded-full" />
                         <span className="text-amber-500">Expertise:</span>
-                        <span className="text-white font-medium">Learning</span>
+                        <span className="text-white font-medium">
+                          Learning & Development
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -238,8 +240,8 @@ export default function Home() {
                         <div className="">
                           <h4 className="font-bold text-white">Present</h4>
                           <p className="text-gray-300 text-sm">
-                            Currently Learning Web / App Development and working
-                            as a freelancer.
+                            Currently enhancing Web / App Development and
+                            looking for a job opportunity.
                           </p>
                         </div>
 
@@ -262,10 +264,9 @@ export default function Home() {
                         <div>
                           <h4 className="font-bold text-white">Education</h4>
                           <p className="text-gray-300 text-sm">
-                            <strong>BCA</strong> - at MSU Baroda - [2024] -
-                            [2028]
+                            <strong>BCA</strong> - at MSU Baroda - (2024 - 2028)
                             <br />
-                            <strong>Commerce</strong> - GSHSEB - [2022] - [2024]
+                            <strong>Commerce</strong> - GSHSEB - (2022 - 2024)
                           </p>
                         </div>
                       </div>
@@ -283,7 +284,7 @@ export default function Home() {
                         className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                       >
                         <span className="text-gray-200">
-                          Website / App Development
+                          Web / App Development
                         </span>
                         <LayoutTemplate className="text-gray-600 w-8 h-8 bg-gray-100 p-0.5 rounded" />
                       </div>
@@ -305,8 +306,15 @@ export default function Home() {
                         tabIndex={0}
                         className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                       >
-                        <span className="text-gray-200">SQL</span>
+                        <span className="text-gray-200">DB management</span>
                         <Database className="text-red-600 w-8 h-8 bg-red-100 p-0.5 rounded" />
+                      </div>
+                      <div
+                        tabIndex={0}
+                        className="flex justify-end gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                      >
+                        <span className="text-gray-200">Problem Solving</span>
+                        <FileCheck className="text-yellow-400 w-8 h-8 bg-yellow-100 p-0.5 rounded" />
                       </div>
                     </div>
                   </div>

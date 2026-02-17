@@ -10,7 +10,7 @@ import ContactModal from "../ContactModal";
 export default function Navbar() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false); // New state to track scroll position
+  const [scrolled, setScrolled] = useState(false);
   const [isContactModalOpen, setContactModalOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
