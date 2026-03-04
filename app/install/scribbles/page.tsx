@@ -46,7 +46,7 @@ export default function ScribblesInstallPage() {
         </motion.p>
         <motion.div variants={itemVariants}>
           <Link
-            href="https://drive.google.com/file/d/1YrNTzYMETvlOoP2g29XtllZZmYYN_3T3/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1kuzTKPZ6Qelq3VUfv58__reni5scn9ze/view?usp=drive_link"
             download
             className="inline-flex items-center gap-3 px-8 py-4 bg-amber-500 text-black font-bold rounded-full text-lg hover:bg-amber-400 transition-all duration-300 ease-in-out shadow-lg hover:shadow-amber-500/30 transform hover:-translate-y-1"
           >

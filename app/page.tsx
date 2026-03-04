@@ -16,54 +16,9 @@ import {
 import Link from "next/link";
 import SkillsSection from "../components/SkillsSection";
 import ContactModal from "@/components/ContactModal";
+import PROJECT_DATA from "../data/projects";
 
-const projects = [
-  {
-    title: "MRK TechSolutions",
-    description:
-      "Website for a passionate team of innovators, problem-solvers, and technology enthusiasts dedicated to empowering businesses through digital transformation. Built with the latest technologies to solve a real-world problem.",
-    image: "/projects/p1/p1.png",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    liveUrl: "https://mubin-s-project.vercel.app/",
-    githubUrl: "https://github.com/atakhatri/mubin-s-project.git",
-  },
-  {
-    title: "Scribbles",
-    description:
-      "A fun game to play with your friends in free time, where you can draw and guess what your friends are drawing. Very smooth and consistent experience with firebase integration.",
-    image: "/projects/p5/scribbles.png",
-    tags: ["React Native", "Expo", "Firebase"],
-    liveUrl: "/install/scribbles",
-    githubUrl: "https://github.com/atakhatri/Scribbles.git",
-  },
-  {
-    title: "UNO Game",
-    description:
-      "Made for Entertainment purposes, a nice way to pass your boredome. Created with Original UNO game logic, where you can play it with your friends as well. it is made with latest tech and framework of next.js, and firebase.",
-    image: "/projects/p2/p2.png",
-    tags: ["Next.js", "React", "Firebase", "Tailwind CSS"],
-    liveUrl: "https://uno-ebon.vercel.app/",
-    githubUrl: "https://github.com/atakhatri/UNO.git",
-  },
-  {
-    title: "climate",
-    description:
-      "A weather app built using React Native and Expo that provides real-time weather information for any location. It features a clean and intuitive UI designed with Tailwind CSS, and fetches data from a reliable weather API to display current conditions, forecasts, and more.",
-    image: "/projects/p3/p3.png",
-    tags: ["React Native", "Expo", "Tailwind CSS", "Weather API"],
-    liveUrl: "/install/climate",
-    githubUrl: "https://github.com/atakhatri/climate.git",
-  },
-  {
-    title: "Virat Kohli Fan Page",
-    description:
-      "A fan page dedicated to Virat Kohli, showcasing his achievements, statistics, and memorable moments in cricket. Built with Next.js and styled with Tailwind CSS, the page features a responsive design and interactive elements to engage fans.",
-    image: "/projects/p4/p4.png",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    liveUrl: "https://vk18-sigma.vercel.app/",
-    githubUrl: "https://github.com/atakhatri/vk18.git",
-  },
-];
+const projects = PROJECT_DATA;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -373,7 +328,7 @@ export default function Home() {
                             rel="noopener noreferrer"
                             className="flex items-center gap-1 hover:text-amber-400 transition-colors"
                           >
-                            Live Demo <ExternalLink size={16} />
+                            Visit <ExternalLink size={16} />
                           </a>
                           <a
                             href={project.githubUrl}
