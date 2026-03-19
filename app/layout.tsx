@@ -21,8 +21,67 @@ const abolition = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ata Khatri | Web/App Developer",
-  description: "Ata Khatri's personal portfolio website.",
+  title: {
+    default: "Ata Khatri | Portfolio",
+    template: "%s | Ata Khatri", // Automatically appends your name to sub-page titles
+  },
+  description:
+    "I'm Ata Khatri, a developer and creative showcasing my latest software projects, skills, and visual gallery.",
+  keywords: [
+    "Ata Khatri",
+    "Ata",
+    "Khatri",
+    "Developer",
+    "Portfolio",
+    "Web Developer",
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "Frontend Developer",
+    "Portfolio",
+    "Web Developer",
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "Frontend Developer",
+  ],
+  authors: [{ name: "Ata Khatri" }],
+  creator: "Ata Khatri",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://portify-amber.vercel.app/", // Replace with your domain
+    title: "Ata Khatri | Portfolio",
+    description:
+      "Explore my latest software projects, skills, and visual gallery.",
+    siteName: "Ata Khatri Portfolio",
+    images: [
+      {
+        url: "https://portify-amber.vercel.app/pic.jpg", // Make sure you have an image here for link previews!
+        width: 1200,
+        height: 630,
+        alt: "Ata Khatri - Portfolio Overview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ata Khatri | Portfolio",
+    description:
+      "Explore my latest software projects, skills, and visual gallery.",
+    images: ["https://portify-amber.vercel.app/pic.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
