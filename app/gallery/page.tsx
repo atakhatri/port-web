@@ -11,13 +11,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { title } from "process";
 import FadeContent from "@/components/animated/fadecontent";
 import PROJECT_DATA from "@/data/projects";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Gallery",
-  description:
-    "A visual collection of projects, designs, and explorations by Ata Khatri.",
-};
 
 const galleryImages = [
   {
