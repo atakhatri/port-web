@@ -45,6 +45,9 @@ export const metadata: Metadata = {
     "React",
     "Frontend Developer",
   ],
+  verification: {
+    google: "8UfbM8SAC0jlDLNos6kOYqjF75aXdeStlHRAzigs-a8", // Replace with your actual verification code
+  },
   authors: [{ name: "Ata Khatri" }],
   creator: "Ata Khatri",
   openGraph: {
