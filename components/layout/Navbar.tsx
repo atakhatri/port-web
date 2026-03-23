@@ -150,9 +150,9 @@ export default function Navbar() {
                 <X className="h-12 w-12 rounded-xl border border-white/10 bg-black/40 p-1 text-white shadow-lg backdrop-blur-md transition-all duration-300 ease-in-out" />
               ) : (
                 <Menu
-                  className={` h-12 w-12 text-white font-extrabold transition-all duration-300 ease-in-out ${
+                  className={` h-12 w-12 text-white transition-all duration-300 ease-in-out ${
                     scrolled
-                      ? "rounded-xl border border-white/10 bg-black/30 p-1 text-white font-medium shadow-lg backdrop-blur-md"
+                      ? "rounded-xl border border-white/10 bg-black/30 p-1 text-white shadow-lg backdrop-blur-md"
                       : "text-white/80"
                   }`}
                 />
@@ -177,7 +177,7 @@ export default function Navbar() {
                 exit={{ y: -20, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 340, damping: 32 }}
                 onClick={(event) => event.stopPropagation()}
-                className="absolute left-4 top-20 rounded-2xl border border-white/15 bg-zinc-950/80 backdrop:backdrop-blur-3xl p-3 shadow-2xl"
+                className="absolute left-4 top-20 rounded-2xl border border-white/15 bg-zinc-950/80 backdrop-blur-3xl p-3 shadow-2xl"
               >
                 <div className="flex flex-col gap-3">
                   <Link

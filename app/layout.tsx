@@ -96,6 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
+        id="top"
         className={`${geistSans.variable} ${abolition.variable} antialiased flex flex-col min-h-screen`}
       >
         <PreloaderWrapper>

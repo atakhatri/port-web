@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-  Github,
-  Instagram,
-  Linkedin,
-  LoaderPinwheel,
-  Mail,
-  Sparkles,
-} from "lucide-react";
+import { Github, Instagram, Linkedin, Mail, Sparkles } from "lucide-react";
 import FadeContent from "../animated/fadecontent";
 
 export default function Footer() {
@@ -119,12 +112,12 @@ export default function Footer() {
 
           <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-4 text-xs text-white/60 md:flex-row">
             <p>© {year} Ata Khatri. All rights reserved.</p>
-            <Link
-              href="/"
+            <a
+              href="#top"
               className="rounded-full border border-white/15 bg-white/5 px-3 py-1 transition-all duration-300 hover:bg-amber-400 hover:text-black"
             >
               Back to top
-            </Link>
+            </a>
           </div>
         </div>
       </footer>

@@ -40,7 +40,7 @@ export default function ScrollProgress() {
   }, [pathname]);
 
   return (
-    <div className=" overflow-hidden pointer-events-none fixed left-0 top-0 z-[80] h-1 w-full">
+    <div className="overflow-hidden pointer-events-none fixed left-0 top-0 z-[80] h-1 w-full">
       <div
         className="h-full origin-left bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600 shadow-[0_0_10px_rgba(255,183,3,0.55)] transition-[transform,opacity] duration-150 ease-out"
         style={{
