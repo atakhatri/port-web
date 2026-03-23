@@ -29,6 +29,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .btn-primary:hover {
   background-color: #e6a600;
   color: white;
@@ -55,4 +61,34 @@ body {
   animation-play-state: paused;
   cursor: pointer;
   color: #e6a600;
+}
+
+/* Global amber-themed scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ffb703 rgba(255, 255, 255, 0.12);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffc84a 0%, #ffb703 55%, #e6a600 100%);
+  border-radius: 9999px;
+  border: 2px solid rgba(0, 0, 0, 0.22);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffd166 0%, #ffbf2f 55%, #f2a900 100%);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }

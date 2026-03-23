@@ -1,5 +1,4 @@
 "use client";
-import { useRef, useEffect } from "react";
 import { ExternalLink, FileCheck, Tags } from "lucide-react";
 import React, { useState, Fragment } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -12,6 +11,8 @@ import {
   Figma,
   TrendingUpDown,
   Database,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 import SkillsSection from "../components/SkillsSection";
@@ -40,36 +41,73 @@ const cardVariants = {
 
 export default function Home() {
   const [isContactModalOpen, setContactModalOpen] = useState(false);
+  const [mobileProjectPage, setMobileProjectPage] = useState(0);
 
-  const leftSectionRef = useRef<HTMLDivElement>(null);
-  const rightSectionRef = useRef<HTMLDivElement>(null);
+  const projectsPerMobilePage = 2;
+  const totalMobileProjectPages = Math.max(
+    1,
+    Math.ceil(projects.length / projectsPerMobilePage),
+  );
+  const mobileProjects = projects.slice(
+    mobileProjectPage * projectsPerMobilePage,
+    mobileProjectPage * projectsPerMobilePage + projectsPerMobilePage,
+  );
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const leftSection = leftSectionRef.current;
-      const rightSection = rightSectionRef.current;
-
-      if (!leftSection || !rightSection) return;
-
-      const leftScrollTop = leftSection.scrollTop;
-      const rightScrollTop = rightSection.scrollTop;
-
-      const leftScrollHeight =
-        leftSection.scrollHeight - leftSection.clientHeight;
-      const rightScrollHeight =
-        rightSection.scrollHeight - rightSection.clientHeight;
-
-      const canScrollMain =
-        leftScrollTop >= leftScrollHeight &&
-        rightScrollTop >= rightScrollHeight;
-
-      document.body.style.overflowY = canScrollMain ? "auto" : "hidden";
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const renderProjectCard = (
+    project: (typeof projects)[number],
+    key: string | number,
+  ) => (
+    <motion.div
+      key={key}
+      variants={cardVariants}
+      tabIndex={0}
+      className="bg-white/10 rounded-xl overflow-hidden group transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+    >
+      <div className="overflow-hidden">
+        <Image
+          src={project.image}
+          alt={project.title}
+          width={500}
+          height={300}
+          className="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <div className="p-2">
+        <h3 className="text-xl md:text-2xl font-bold mb-2 pl-0.5">
+          {project.title}
+        </h3>
+        <p className="text-gray-300 mb-4">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="bg-amber-500/20 text-amber-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-center gap-4 text-sm">
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-amber-400 transition-colors"
+          >
+            Visit <ExternalLink size={16} />
+          </a>
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-amber-400 transition-colors"
+          >
+            GitHub <ExternalLink size={16} />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  );
 
   return (
     <>
@@ -134,7 +172,7 @@ export default function Home() {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FaSpotify className="text-green-600 w-8 h-8 bg-black p-0.5 rounded-full" />
+                          <FaSpotify className="text-green-600 w-8 h-8 bg-black p-0.5 rounded-full animate-[spin_4s_linear_infinite]" />
                           <span className="text-amber-500">On Repeat:</span>
                           <span className="text-white font-medium">
                             GO TO...
@@ -280,68 +318,70 @@ export default function Home() {
             {/* Right Section */}
             <main className="flex-1 p-2 md:p-4 flex flex-col">
               <SkillsSection />
-              <div className="bg-white/20 p-2 rounded-xl">
+              <div className="bg-white/20 p-2 rounded-xl" id="projects">
                 <h1 className="text-3xl font-bold mb-3 pl-1">Projects</h1>
+
+                <div className="md:hidden">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={mobileProjectPage}
+                      className="grid grid-cols-1 gap-4"
+                      variants={containerVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit={{ opacity: 0, y: 8 }}
+                    >
+                      {mobileProjects.map((project, index) =>
+                        renderProjectCard(
+                          project,
+                          `${project.title}-${mobileProjectPage}-${index}`,
+                        ),
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {totalMobileProjectPages > 1 && (
+                    <div className="mt-4 flex items-center justify-center gap-3">
+                      <button
+                        onClick={() =>
+                          setMobileProjectPage((prev) => Math.max(0, prev - 1))
+                        }
+                        disabled={mobileProjectPage === 0}
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-all duration-300 hover:bg-amber-400 hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
+                        aria-label="Previous projects"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
+                      <p className="text-sm text-white/80">
+                        {mobileProjectPage + 1} / {totalMobileProjectPages}
+                      </p>
+                      <button
+                        onClick={() =>
+                          setMobileProjectPage((prev) =>
+                            Math.min(totalMobileProjectPages - 1, prev + 1),
+                          )
+                        }
+                        disabled={
+                          mobileProjectPage === totalMobileProjectPages - 1
+                        }
+                        className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white transition-all duration-300 hover:bg-amber-400 hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
+                        aria-label="Next projects"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+
                 <motion.div
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+                  className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-4"
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
                 >
-                  {projects.map((project, index) => (
-                    <motion.div
-                      key={index}
-                      variants={cardVariants}
-                      tabIndex={0}
-                      className="bg-white/10 rounded-xl overflow-hidden group transition-all duration-300 hover:bg-white/20 hover:shadow-2xl hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500/50"
-                    >
-                      <div className="overflow-hidden">
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          width={500}
-                          height={300}
-                          className="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div className="p-2">
-                        <h3 className="text-xl md:text-2xl font-bold mb-2 pl-0.5">
-                          {project.title}
-                        </h3>
-                        <p className="text-gray-300 mb-4">
-                          {project.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          {project.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="bg-amber-500/20 text-amber-300 text-xs font-medium px-2.5 py-0.5 rounded-full"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        <div className="flex items-center gap-4 text-sm">
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 hover:text-amber-400 transition-colors"
-                          >
-                            Visit <ExternalLink size={16} />
-                          </a>
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 hover:text-amber-400 transition-colors"
-                          >
-                            GitHub <ExternalLink size={16} />
-                          </a>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
+                  {projects.map((project, index) =>
+                    renderProjectCard(project, `${project.title}-${index}`),
+                  )}
                 </motion.div>
               </div>
             </main>

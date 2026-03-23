@@ -8,6 +8,7 @@ import ClickSpark from "@/components/ui/ClickSpark";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import PreloaderWrapper from "@/components/layout/PreloaderWrapper";
+import ScrollProgress from "@/components/layout/ScrollProgress";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -106,6 +107,7 @@ export default function RootLayout({
             duration={400}
           >
             <Navbar />
+            <ScrollProgress />
             <Aurora
               colorStops={["#f5ebe0", "#ffb703", "#f5ebe0"]}
               blend={1}
