@@ -1,6 +1,6 @@
-import React, { useRef, useLayoutEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -18,11 +18,27 @@ import {
 } from "react-icons/si";
 import { Languages, LayoutTemplate, Figma, Database } from "lucide-react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+type SkillDefinition = {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  color: string;
+  size: string;
+};
 
-const skills = [
+type SkillLayout = {
+  top: string;
+  left: string;
+  rotation: string;
+  enterDelay: number;
+  visibleDuration: number;
+  restartDelay: number;
+};
+
+const seededRandom = (seed: number) => {
+  const x = Math.sin(seed * 999 + 17) * 10000;
+  return x - Math.floor(x);
+};
+
+const skills: SkillDefinition[] = [
   { icon: FaReact, color: "text-blue-400", size: "9rem" },
   { icon: FaHtml5, color: "text-orange-500", size: "6.75rem" },
   { icon: FaCss3Alt, color: "text-blue-600", size: "9rem" },
@@ -77,97 +93,116 @@ const skills = [
   { icon: SiCplusplus, color: "text-blue-700", size: "6.75rem" },
 ];
 
-const SkillsSection = () => {
-  const skillsContainerRef = useRef(null);
+const skillLayouts: SkillLayout[] = skills.map((_, index) => ({
+  top: `${8 + seededRandom(index + 1) * 84}%`,
+  left: `${4 + seededRandom(index + 11) * 88}%`,
+  rotation: `${Math.round(-85 + seededRandom(index + 21) * 170)}deg`,
+  enterDelay: Math.round(seededRandom(index + 31) * 7000),
+  visibleDuration: Math.round(15000 + seededRandom(index + 41) * 5000),
+  restartDelay: Math.round(500 + seededRandom(index + 51) * 2600),
+}));
 
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".skill-icon",
-        {
-          opacity: 0,
-          scale: 0.5,
-          y: 50,
-          rotation: () => gsap.utils.random(-180, 180),
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          rotation: () => gsap.utils.random(-15, 15),
-          stagger: 0.05,
-          duration: 0.8,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: skillsContainerRef.current,
-            start: "top bottom+=100",
-          },
-        },
-      );
+type SkillIconItemProps = SkillDefinition & SkillLayout;
 
-      const icons = gsap.utils.toArray(".skill-icon");
-      icons.forEach((icon: any) => {
-        gsap.set(icon, { transformOrigin: "center center" });
+const SkillIconItem = ({
+  icon: IconComponent,
+  color,
+  size,
+  top,
+  left,
+  rotation,
+  enterDelay,
+  visibleDuration,
+  restartDelay,
+}: SkillIconItemProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isPopping, setIsPopping] = useState(false);
+  const timersRef = useRef<number[]>([]);
 
-        icon.addEventListener("mouseenter", () => {
-          gsap.to(icon, {
-            scale: 1.2,
-            y: -15,
-            rotation: 0,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
+  function clearTimers() {
+    timersRef.current.forEach((timerId) => window.clearTimeout(timerId));
+    timersRef.current = [];
+  }
 
-        icons.forEach((icon: any) => {
-          gsap.to(icon, {
-            y: gsap.utils.random(-100, 100),
-            x: gsap.utils.random(-50, 50),
-            scrollTrigger: {
-              trigger: skillsContainerRef.current,
-              scrub: true,
-              start: "top bottom",
-              end: "bottom top",
-            },
-          });
-        });
+  function scheduleCycle() {
+    clearTimers();
 
-        icon.addEventListener("mouseleave", () => {
-          gsap.to(icon, {
-            scale: 1,
-            y: 0,
-            rotation: () => gsap.utils.random(-15, 15),
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
-    }, skillsContainerRef);
-    return () => ctx.revert();
+    const showTimer = window.setTimeout(() => {
+      setIsVisible(true);
+      setIsPopping(false);
+
+      const autoPopTimer = window.setTimeout(() => {
+        triggerPop();
+      }, visibleDuration);
+
+      timersRef.current.push(autoPopTimer);
+    }, enterDelay);
+
+    timersRef.current.push(showTimer);
+  }
+
+  function triggerPop() {
+    clearTimers();
+    setIsVisible(true);
+    setIsPopping(true);
+
+    const hideTimer = window.setTimeout(() => {
+      setIsVisible(false);
+      setIsPopping(false);
+
+      const restartTimer = window.setTimeout(() => {
+        scheduleCycle();
+      }, restartDelay);
+
+      timersRef.current.push(restartTimer);
+    }, 280);
+
+    timersRef.current.push(hideTimer);
+  }
+
+  useEffect(() => {
+    scheduleCycle();
+    return clearTimers;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const transform = `translateY(${isPopping ? "-22px" : isVisible ? "0px" : "18px"}) rotate(${rotation}) scale(${isPopping ? 1.3 : isVisible ? 1 : 0.55})`;
+
   return (
-    <div
-      ref={skillsContainerRef}
-      className=" px-4 rounded-xl relative h-[15rem] overflow-hidden"
-    >
+    <IconComponent
+      onClick={triggerPop}
+      className={`skill-icon absolute ${color} cursor-pointer select-none transition-[transform,opacity,filter] duration-300 ease-out hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] ${
+        isVisible ? "pointer-events-auto" : "pointer-events-none"
+      }`}
+      style={{
+        top,
+        left,
+        transform,
+        opacity: isVisible ? (isPopping ? 0 : 1) : 0,
+        fontSize: size,
+        willChange: "transform, opacity",
+      }}
+    />
+  );
+};
+
+const SkillsSection = () => {
+  return (
+    <div className=" px-0 rounded-xl relative h-[15rem] overflow-hidden">
       <div className="absolute inset-0 p-4">
         {skills.map((skill, i) => {
-          const IconComponent = skill.icon;
-          const randomTop = `${gsap.utils.random(40, 90)}%`;
-          const randomLeft = `${gsap.utils.random(5, 90)}%`;
-          const randomRotate = `${gsap.utils.random(-45, 45)}deg`;
-
           return (
-            <IconComponent
+            <SkillIconItem
               key={i}
-              className={`skill-icon absolute ${skill.color} cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]`}
-              style={{
-                top: randomTop,
-                left: randomLeft,
-                transform: `rotate(${randomRotate})`,
-                fontSize: skill.size,
-              }}
+              icon={skill.icon}
+              color={skill.color}
+              size={skill.size}
+              top={skillLayouts[i].top}
+              left={skillLayouts[i].left}
+              rotation={skillLayouts[i].rotation}
+              enterDelay={skillLayouts[i].enterDelay}
+              visibleDuration={skillLayouts[i].visibleDuration}
+              restartDelay={skillLayouts[i].restartDelay}
             />
           );
         })}

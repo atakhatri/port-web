@@ -11,6 +11,7 @@ const PROJECT_DATA = [
             { type: "video", src: "/projects/p1/p1.mp4" },
             { type: "image", src: "/projects/p1/p12.png" },
         ] as const,
+        type: "Website",
     },
     {
         title: "UNO Game",
@@ -24,11 +25,11 @@ const PROJECT_DATA = [
             { type: "video", src: "/projects/p2/p2.mp4" },
             { type: "image", src: "/projects/p2/p22.png" },
         ] as const,
+        type: "Website",
     },
 
     {
         title: "Climate",
-        type: "Mobile App",
         description:
             "A weather app built using React Native and Expo that provides real-time weather information for any location. It features a clean and intuitive UI designed with Tailwind CSS, and fetches data from a reliable weather API to display current conditions, forecasts, and more.",
         image: "/projects/p3/p3.png",
@@ -40,6 +41,7 @@ const PROJECT_DATA = [
             { type: "image", src: "/projects/p3/inner.jpeg" },
             { type: "image", src: "/projects/p3/map.jpeg" },
         ] as const,
+        type: "Mobile App",
     },
     {
         title: "Virat Kohli Fan Page",
@@ -53,10 +55,10 @@ const PROJECT_DATA = [
             { type: "video", src: "/projects/p4/p4.mp4" },
             { type: "image", src: "/projects/p4/p42.png" },
         ] as const,
+        type: "Website",
     },
     {
         title: "Scribbles",
-        type: "Mobile App",
         description:
             "A simple drawing app built with React and TypeScript, allowing users to create and save their digital scribbles. It features a canvas for freehand drawing, color selection, and the ability to export drawings as images.",
         image: "/projects/p5/scribbles.png",
@@ -71,6 +73,7 @@ const PROJECT_DATA = [
             { type: "image", src: "/projects/p5/friends.jpeg" },
             { type: "image", src: "/projects/p5/win.jpeg" },
         ] as const,
+        type: "Mobile App",
     },
 ];
 

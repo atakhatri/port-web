@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import SkillsSection from "../components/SkillsSection";
 import ContactModal from "@/components/ContactModal";
+import ProjectsSection from "@/components/layout/ProjectsSection";
 import PROJECT_DATA from "../data/projects";
 
 const projects = PROJECT_DATA;
@@ -114,9 +115,9 @@ export default function Home() {
       <div className="container mx-auto">
         <FadeContent>
           {/* Main Flex Container */}
-          <div className="flex flex-col md:flex-row md:pt-0">
+          <div className="flex flex-col md:flex-row md:items-start md:pt-0">
             {/* Left Section - The aside wrapper */}
-            <aside className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-white/10 p-2 md:p-4">
+            <aside className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-white/10 p-2 md:p-4 md:pt-8">
               <div className="sticky top-4 flex flex-col gap-4 md:gap-8">
                 {/* 1. Profile/Contact Block */}
                 <FadeContent delay={0}>
@@ -124,7 +125,7 @@ export default function Home() {
                     <div>
                       <div className="flex items-center gap-3 mb-2">
                         <Image
-                          src="/pic.jpg"
+                          src="/pic.jpeg"
                           alt="Profile Picture"
                           width={72}
                           height={72}
@@ -164,11 +165,11 @@ export default function Home() {
                     <div className="space-y-2">
                       <div
                         tabIndex={0}
-                        className="flex justify-baseline gap-2 items-center bg-white/10 px-2 py-2 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                        className="justify-baseline gap-2 items-center bg-white/10 rounded-lg hover:bg-white/20 hover:scale-[1.02] transition-all duration-300 cursor-default focus:outline-none focus:ring-2 focus:ring-amber-500/50"
                       >
                         <Link
                           href="https://open.spotify.com/playlist/4YEH7T9M0NHuoLuBpViomw?si=873c8f5ae4fc4f30"
-                          className="flex items-center gap-2"
+                          className="flex items-center gap-2 p-2"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -178,6 +179,17 @@ export default function Home() {
                             GO TO...
                           </span>
                         </Link>
+                        <div className="hidden md:block overflow-hidden rounded-xl">
+                          <iframe
+                            title="Spotify Playlist"
+                            src="https://open.spotify.com/embed/playlist/4YEH7T9M0NHuoLuBpViomw?utm_source=generator&theme=0"
+                            width="100%"
+                            height="152"
+                            loading="lazy"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            className="w-full "
+                          ></iframe>
+                        </div>
                       </div>
                       <div
                         tabIndex={0}
@@ -318,7 +330,7 @@ export default function Home() {
             {/* Right Section */}
             <main className="flex-1 p-2 md:p-4 flex flex-col">
               <SkillsSection />
-              <div className="bg-white/20 p-2 rounded-xl" id="projects">
+              <div className="bg-white/20 p-2 rounded-2xl" id="projects">
                 <h1 className="text-3xl font-bold mb-3 pl-1">Projects</h1>
 
                 <div className="md:hidden">
@@ -373,16 +385,7 @@ export default function Home() {
                   )}
                 </div>
 
-                <motion.div
-                  className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-4"
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                >
-                  {projects.map((project, index) =>
-                    renderProjectCard(project, `${project.title}-${index}`),
-                  )}
-                </motion.div>
+                <ProjectsSection />
               </div>
             </main>
           </div>
